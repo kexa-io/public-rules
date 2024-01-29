@@ -1,5 +1,7 @@
 - version: 1.0.0
   date: 07-18-2023
+  mlWorkspace: &mlWorkspace
+  mlJob: &mlJob
   alert:
     fatal:
       enabled: false
@@ -112,10 +114,10 @@
           criteria:
             - property: workspace
               condition: EQUAL
-              value: "Test-Kexa-Machine-Learning" #name of the workspace
+              value: *mlWorkspace
             - property: properties.displayName
               condition: EQUAL
-              value: "hello-world-example" #name of the job
+              value: *mlJob
             - property: properties.status
               condition: EQUAL
               value: Failed
