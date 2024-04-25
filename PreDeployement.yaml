@@ -1,8 +1,5 @@
 - version: 1.0.0
   date: 10-26-2023
-  full_name_repo: &full_name_repo
-  name_repo: &name_repo
-  myNamespace: &myNamespace
   alert:
     fatal:
       enabled: false
@@ -63,7 +60,8 @@
               value: false
             - property: full_name
               condition: EQUAL
-              value: *full_name_repo
+              #change the name with your repo name
+              value: 4urcloud/Kexa_website
     - name: "git-is-branch-protected"
       description: "this rules is to check if my git branch is protected"
       applied: true
@@ -75,7 +73,8 @@
           criteria:
             - property: repo
               condition: DIFFERENT
-              value: *name_repo
+              #change the name with your repo name
+              value: Kexa_website
             - property : name
               condition : DIFFERENT
               value : main
@@ -94,4 +93,5 @@
           value:
             - property : metadata.name
               condition : EQUAL
-              value : *myNamespace
+              #change the name with your namespace
+              value : kexawebsitepublic

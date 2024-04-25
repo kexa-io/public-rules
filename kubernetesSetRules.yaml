@@ -78,7 +78,7 @@
               value : *myNamespace
     - name: "kub-are-all-pods-running-namespace"
       description : "this rules is to check if all pods are running for a namespace"
-      applied: false
+      applied: true
       level: 2
       cloudProvider: kubernetes
       objectName : pods
@@ -93,7 +93,7 @@
               value : *myNamespace
     - name: "kub-are-all-pods-not-running"
       description : "this rules is to be notifiable if pods are not running"
-      applied: false
+      applied: true
       level: 2
       cloudProvider: kubernetes
       objectName : pods
@@ -108,7 +108,7 @@
               value : Succeeded
     - name: "kub-all-my-helm-is-deploy"
       description : "this rules is to check if some helm are not deployed"
-      applied: false
+      applied: true
       level: 2
       cloudProvider: kubernetes
       objectName : helm

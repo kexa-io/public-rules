@@ -133,7 +133,7 @@
               value: Delete
     - name: "azure-check-aks-cluster-conformity"
       description : "this rules is to check if aks cluster are conform to the norms"
-      applied: false
+      applied: true
       level: 2
       cloudProvider: azure
       objectName : ContainerServiceClient.managedClusters
@@ -158,7 +158,7 @@
           value : NULL
     - name: "azure-disk-not-public-or-encrypted"
       description : "this rules is to check if disk is either not public or encrypted by default"
-      applied: false
+      applied: true
       level: 2
       cloudProvider: azure
       objectName : ComputeManagementClient.disks

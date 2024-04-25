@@ -1,7 +1,5 @@
 - version: 1.0.0
   date: 07-18-2023
-  mlWorkspace: &mlWorkspace
-  mlJob: &mlJob
   alert:
     fatal:
       enabled: false
@@ -67,7 +65,7 @@
       applied: true
       level: 2
       cloudProvider: aws
-      objectName: ec2Volume
+      objectName: EC2Client.Volumes
       conditions:
         - property: CreateTime
           condition: DATE_INF
@@ -78,7 +76,7 @@
       applied: true
       level: 1
       cloudProvider: aws
-      objectName: tagsValue
+      objectName: KexaAwsCustoms.tagsValueListing
       conditions:
         - property: name
           condition: REGEX
@@ -114,10 +112,10 @@
           criteria:
             - property: workspace
               condition: EQUAL
-              value: *mlWorkspace
+              value: "Test-Kexa-Machine-Learning" #name of the workspace
             - property: properties.displayName
               condition: EQUAL
-              value: *mlJob
+              value: "hello-world-example" #name of the job
             - property: properties.status
               condition: EQUAL
               value: Failed
