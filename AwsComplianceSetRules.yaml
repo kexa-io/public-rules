@@ -52,7 +52,7 @@
   rules:
     - name: "aws-rg-tagsvalue-check-for-expiration-date"
       description: "this rule is to check if tags contain an expiration date (separate with \"-\")"
-      applied: true
+      applied: false
       level: 1
       cloudProvider: aws
       objectName: KexaAwsCustoms.tagsValueListing
@@ -63,7 +63,7 @@
     # need to define behavior
     - name: "aws-resources-tags-key-value-check"
       description: "this rule is to check if tags and their value match your tagging policy"
-      applied: true
+      applied: false
       level: 1
       cloudProvider: aws
       objectName: KexaAwsCustoms.resourcesTags
@@ -100,7 +100,7 @@
     # need to define behavior
     - name: "aws-user-tags-check"
       description: "this rule is to check if tags contain an expiration date (separate with \"-\")"
-      applied: true
+      applied: false
       level: 1
       cloudProvider: aws
       objectName: IAMClient.UserTags
@@ -117,7 +117,7 @@
     # need to define behavior
     - name: "aws-instance-profile-tags-check"
       description: "this rule is to check if tags contain an expiration date (separate with \"-\")"
-      applied: true
+      applied: false
       level: 1
       cloudProvider: aws
       objectName: IAMClient.InstanceProfileTags
