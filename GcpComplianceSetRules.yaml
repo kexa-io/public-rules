@@ -53,7 +53,7 @@
     # WorkloadName Tags checking
     - name: "gcp-tags-check"
       description: "this rule is to check on gcp tags for a specific pattern"
-      applied: true
+      applied: false
       level: 1
       cloudProvider: gcp
       objectName: tags_keys

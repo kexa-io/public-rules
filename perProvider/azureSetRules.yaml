@@ -133,7 +133,7 @@
               value: Delete
     - name: "azure-check-aks-cluster-conformity"
       description : "this rules is to check if aks cluster are conform to the norms"
-      applied: true
+      applied: false
       level: 2
       cloudProvider: azure
       objectName : ContainerServiceClient.managedClusters
@@ -158,7 +158,7 @@
           value : NULL
     - name: "azure-disk-not-public-or-encrypted"
       description : "this rules is to check if disk is either not public or encrypted by default"
-      applied: true
+      applied: false
       level: 2
       cloudProvider: azure
       objectName : ComputeManagementClient.disks
@@ -196,3 +196,43 @@
             - property: instanceView.availableMemoryBytes.mean
               condition: SUP
               value: 50
+    - name: "azure-storage-account-no-public-access"
+      description: "this rule is to check on azure storage account for public access"
+      applied: false
+      level: 1
+      cloudProvider: azure
+      objectName: StorageManagementClient.storageAccounts
+      conditions:
+        - property: publicNetworkAccess
+          condition: DIFFERENT
+          value: 'Enabled'
+    - name: "azure-storage-account-encryption-enabled"
+      description: "this rule is to check on azure storage account for encryption enabled"
+      applied: true
+      level: 1
+      cloudProvider: azure
+      objectName: StorageManagementClient.storageAccounts
+      conditions:
+        - operator: AND
+          criteria:
+            - property: encryption.services.file.enabled
+              condition: EQUAL
+              value: true
+            - property: encryption.services.blob.enabled
+              condition: EQUAL
+              value: true
+    - name: "azure-storage-account-encryption-using-kms"
+      description: "this rule is to check on azure storage account for encryption using kms"
+      applied: true
+      level: 1
+      cloudProvider: azure
+      objectName: StorageManagementClient.storageAccounts
+      conditions:
+        - operator: AND
+          criteria:
+            - property: encryption.services.file.keySource
+              condition: EQUAL
+              value: 'Microsoft.Keyvault'
+            - property: encryption.services.blob.keySource
+              condition: EQUAL
+              value: 'Microsoft.Keyvault'

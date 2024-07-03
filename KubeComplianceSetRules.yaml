@@ -49,7 +49,7 @@
     # pod name compliance
     - name: "kube-pods-name-compliance"
       description: "this rules is to check compliance of pods names"
-      applied: true
+      applied: false
       level: 1
       cloudProvider: kubernetes
       objectName: pods

@@ -1,6 +1,5 @@
 - version: 1.0.0
   date: 07-18-2023
-  myNamespace: &myNamespace
   alert:
     fatal:
       enabled: true
@@ -51,6 +50,7 @@
         - level: 3
           min: 1
   rules:
+    #change the namespace name to your namespace
     - name: "namespace-exist-api-4urcloud"
       description : "this rules is to check if namespace exist and notifiable if exist"
       applied: true
@@ -60,7 +60,8 @@
       conditions:
         - property : metadata.name
           condition : DIFFERENT
-          value : *myNamespace
+          value : 4urcloudwebsitepublic
+    #change the namespace name to your namespace
     - name: "all-pods-running-kexawebsite"
       description : "this rules is to check if all pods are running for a namespace"
       applied: true
@@ -75,10 +76,10 @@
               value : Running
             - property : metadata.namespace
               condition : EQUAL
-              value : *myNamespace
+              value : kexawebsitepublic
     - name: "kub-are-all-pods-running-namespace"
       description : "this rules is to check if all pods are running for a namespace"
-      applied: true
+      applied: false
       level: 2
       cloudProvider: kubernetes
       objectName : pods
@@ -90,10 +91,10 @@
               value : Running
             - property : metadata.namespace
               condition : EQUAL
-              value : *myNamespace
+              value : thecloudprices-manorga
     - name: "kub-are-all-pods-not-running"
       description : "this rules is to be notifiable if pods are not running"
-      applied: true
+      applied: false
       level: 2
       cloudProvider: kubernetes
       objectName : pods
@@ -108,7 +109,7 @@
               value : Succeeded
     - name: "kub-all-my-helm-is-deploy"
       description : "this rules is to check if some helm are not deployed"
-      applied: true
+      applied: false
       level: 2
       cloudProvider: kubernetes
       objectName : helm
