@@ -159,11 +159,9 @@
       cloudProvider: kubernetes
       objectName : pods
       conditions:
-        - operator: NAND
-          criteria:
-            - property : status.phase
-              condition : DIFFERENT
-              value : Terminating
+        - property : status.phase
+          condition : DIFFERENT
+          value : Terminating
     - name: "kube-persistent-volume-verify-storage-class"
       description : "this rules is to verify for a persistent volume storage class"
       applied: false
